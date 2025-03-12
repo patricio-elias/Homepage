@@ -14,18 +14,22 @@
                 "✅ Sempre verifique URLs antes de digitar senhas!"
             ];
  
+            // Exibe todos os alertas antes de permitir a interação
             for (let msg of mensagens) {
                 alert(msg);
             }
  
-            // Impede que o usuário simplesmente saia sem interagir
-            setTimeout(() => {
-                while (true) {
-                    if (confirm("Você entendeu os riscos? Clique em OK para confirmar.")) {
-                        break;
-                    }
+            // Loop para garantir que o usuário confirme que entendeu
+            while (true) {
+                if (confirm("Você entendeu os riscos? Clique em OK para confirmar.")) {
+                    break;
                 }
-            }, 1000);
+            }
+        };
+ 
+        // Impede o usuário de fechar a aba ou recarregar a página
+        window.onbeforeunload = function(event) {
+            return "Tem certeza de que deseja sair? Você ainda pode estar vulnerável.";
         };
     </script>
 </head>
