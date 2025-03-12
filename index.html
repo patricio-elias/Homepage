@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alerta de Segurança</title>
+    <script>
+        window.onload = function() {
+            let mensagens = [
+                "⚠️ Cuidado com QR Codes desconhecidos!",
+                "📢 Nunca forneça dados sem verificar a origem!",
+                "🔍 Sempre confira o link antes de clicar!",
+                "🛑 Você poderia estar em um site malicioso agora!",
+                "✅ Sempre verifique URLs antes de digitar senhas!"
+            ];
+ 
+            for (let msg of mensagens) {
+                alert(msg);
+            }
+ 
+            // Impede que o usuário simplesmente saia sem interagir
+            setTimeout(() => {
+                while (true) {
+                    if (confirm("Você entendeu os riscos? Clique em OK para confirmar.")) {
+                        break;
+                    }
+                }
+            }, 1000);
+        };
+    </script>
+</head>
+<body>
+    <h1>Este QR Code poderia ser malicioso!</h1>
+    <p>Fique atento aos riscos de engenharia social.</p>
+</body>
+</html>
