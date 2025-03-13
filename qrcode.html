@@ -4,10 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alerta de Segurança</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #111;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background-color: #222;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        h1 {
+            color: red;
+        }
+        h2 {
+            color: orange;
+        }
+        ul {
+            text-align: left;
+        }
+    </style>
     <script>
         window.onload = function() {
             let mensagens = [
-                "⚠️ Foi curioso heim, não confie em QR Code por ai, pega as dicas!",
                 "⚠️ Cuidado com QR Codes desconhecidos!",
                 "📢 Nunca forneça dados sem verificar a origem!",
                 "🔍 Sempre confira o link antes de clicar!",
@@ -15,27 +39,43 @@
                 "✅ Sempre verifique URLs antes de digitar senhas!"
             ];
  
-            // Exibe todos os alertas antes de permitir a interação
             for (let msg of mensagens) {
                 alert(msg);
             }
  
-            // Loop para garantir que o usuário confirme que entendeu
             while (true) {
-                if (confirm("Você entendeu os riscos? Clique em OK para confirmar.")) {
+                if (confirm("Você entendeu os riscos? Clique em OK para continuar.")) {
                     break;
                 }
             }
-        };
  
-        // Impede o usuário de fechar a aba ou recarregar a página
-        window.onbeforeunload = function(event) {
-            return "Tem certeza de que deseja sair? Você ainda pode estar vulnerável.";
+            document.getElementById("conteudo").style.display = "block";
         };
     </script>
 </head>
 <body>
-    <h1>Este QR Code poderia ser malicioso!</h1>
-    <p>Fique atento aos riscos de engenharia social.</p>
+    <div id="conteudo" class="container" style="display: none;">
+        <h1>Cuidado ao Escanear QR Codes Desconhecidos!</h1>
+        <p>Os QR Codes estão cada vez mais presentes no nosso dia a dia, facilitando pagamentos, acessos a sites e até a realização de cadastros. No entanto, essa praticidade também traz riscos, especialmente quando se trata de códigos desconhecidos.</p>
+        
+        <h2>Quais são os perigos?</h2>
+        <ul>
+            <li><strong>Golpes de phishing:</strong> Um QR Code pode direcionar você para um site falso que imita um serviço legítimo para roubar seus dados.</li>
+            <li><strong>Download de malware:</strong> Alguns códigos podem iniciar o download de aplicativos maliciosos no seu celular, comprometendo sua segurança.</li>
+            <li><strong>Pagamentos falsos:</strong> Em golpes financeiros, criminosos alteram QR Codes de Pix ou boletos para desviar pagamentos para suas contas.</li>
+            <li><strong>Acesso indevido ao dispositivo:</strong> QR Codes podem conter comandos que exploram vulnerabilidades no seu celular, roubando informações ou até bloqueando o aparelho.</li>
+        </ul>
+ 
+        <h2>Como se proteger?</h2>
+        <ul>
+            <li><strong>Verifique a origem:</strong> Só escaneie QR Codes de fontes confiáveis, como empresas conhecidas, lojas físicas ou instituições oficiais.</li>
+            <li><strong>Cheque o link antes de acessar:</strong> Muitos leitores de QR Code exibem o link antes de abrir a página. Se o endereço parecer suspeito, não prossiga.</li>
+            <li><strong>Prefira aplicativos de segurança:</strong> Alguns apps antivírus analisam QR Codes antes de abrir o link, aumentando a proteção.</li>
+            <li><strong>Cuidado com QR Codes colados sobre outros:</strong> Em locais públicos, verifique se não há etiquetas sobrepostas alterando o código original.</li>
+            <li><strong>Evite fornecer dados sensíveis:</strong> Se um QR Code levar a um site pedindo informações pessoais ou bancárias, desconfie e busque o acesso direto pelo site oficial.</li>
+        </ul>
+ 
+        <p><strong>A tecnologia traz comodidade, mas também exige atenção. Sempre desconfie de QR Codes desconhecidos e proteja seus dados!</strong></p>
+    </div>
 </body>
 </html>
